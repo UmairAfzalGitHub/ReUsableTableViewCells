@@ -9,12 +9,23 @@ Now lets assume that you named your cell as "HomeTableViewCell". Now design your
 
 
 ``` swift  
-    class func cellForTableView(tableView: UITableView) -> SamleTableViewCell {
-    let kSamleTableViewCellIdentifier = "kSamleTableViewCellIdentifier"
-    tableView.register(UINib(nibName: "SamleTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: kSamleTableViewCellIdentifier)
-    let cell = tableView.dequeueReusableCell(withIdentifier: kSamleTableViewCellIdentifier) as! SamleTableViewCell
+    class func cellForTableView(tableView: UITableView) -> HomeTableViewCell {
+    let kSamleTableViewCellIdentifier = "kHomeTableViewCellIdentifier"
+    tableView.register(UINib(nibName: "HomeTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: kHomeTableViewCellIdentifier)
+    let cell = tableView.dequeueReusableCell(withIdentifier: kHomeTableViewCellIdentifier) as! HomeTableViewCell
     return cell
     }
 ```
 
+To use this cell in our tableView we will do as follows in the ViewController:
+
+``` swift 
+
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+let cell = HomeTableViewCell.cellForTableView(tableView: tableView)
+return cell
+}
+```
+
+In this way our viewController will be much more cleaner. and we will not have a lot of code for each cell.
 For first-hand experience, just clone the project and run it.
