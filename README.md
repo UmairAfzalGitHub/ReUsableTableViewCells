@@ -8,17 +8,13 @@ Go to File -> New -> File or just press ⌘N. Select CocoaTouch class and click 
 Now lets assume that you named your cell as "HomeTableViewCell". Now design your cell according to your need. As you might already know that we need to dequeue the cell in order to get best, smooth and memory efficient experience. SO instead of doing all that stuff in our ViewController, lets try to write some clean code. So go to your  tableViewCell's swift file and add this method.
 
 
-    ``` swift  
+``` swift  
     class func cellForTableView(tableView: UITableView) -> SamleTableViewCell {
     let kSamleTableViewCellIdentifier = "kSamleTableViewCellIdentifier"
     tableView.register(UINib(nibName: "SamleTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: kSamleTableViewCellIdentifier)
     let cell = tableView.dequeueReusableCell(withIdentifier: kSamleTableViewCellIdentifier) as! SamleTableViewCell
     return cell
     }
-    ```
-
-
-## Demo
-<img src="https://github.com/UmairAfzalGitHub/Chat/blob/master/chat%20demo.gif" width="300" height="500" />
+```
 
 For first-hand experience, just clone the project and run it.
